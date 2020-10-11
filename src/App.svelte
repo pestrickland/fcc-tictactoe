@@ -1,30 +1,49 @@
 <script>
-	export let name;
+  import Space from "./Space.svelte";
 </script>
 
+<style>
+  main {
+    width: 475px;
+    margin: 0 auto;
+    height: 1080px;
+  }
+  .row {
+    display: flex;
+  }
+  button {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 0;
+    font-size: 30px;
+    background-color: lightblue;
+    cursor: pointer;
+  }
+  button:hover {
+    outline: none;
+  }
+</style>
+
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <h1>Tic Tac Toe</h1>
+  <h2>Number of people playing:</h2>
+  <h2>Player X</h2>
+  <div class="row">
+    <Space space="X" />
+    <Space space="X" />
+    <Space space="X" />
+  </div>
+  <div class="row">
+    <Space space="X" />
+    <Space space="X" />
+    <Space space="X" />
+  </div>
+  <div class="row">
+    <Space space="X" />
+    <Space space="X" />
+    <Space space="X" />
+  </div>
+  <button>New Game</button>
 </main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<Space space="X" />

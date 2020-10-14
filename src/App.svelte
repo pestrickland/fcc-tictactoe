@@ -1,7 +1,7 @@
 <script>
   import Space from "./Space.svelte";
   import gameStore from "./game-store.js";
-  import { nextMove } from "./request.js";
+  import { nextMove, reset } from "./request.js";
   let board = ["", "", "", "", "", "", "", "", ""];
   let nextPlayer = "";
   let winner;
@@ -28,6 +28,10 @@
     }
 
     errorMessage = await nextMove(space);
+  }
+
+  async function newGame () {
+    errorMessage = await reset()
   }
 </script>
 
@@ -82,7 +86,7 @@
     <Space {winner} space={board[7]} on:click={() => takeSpace(7)} />
     <Space {winner} space={board[8]} on:click={() => takeSpace(8)} />
   </div>
-  {#if winner}<button>New Game</button>{/if}
+  {#if winner}<button on:click={newGame}>New Game</button>{/if}
   {#if errorMessage}
     <p class="errorMessage">Error</p>
   {/if}
